@@ -1,0 +1,14 @@
+version: 1
+
+models:
+  - name: stg_imdb
+    columns:
+      - name: rating
+        tests:
+          - not_null
+  - name: top_directors
+    columns:
+      - name: director
+        tests:
+          - unique
+

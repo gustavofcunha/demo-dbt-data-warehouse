@@ -1,0 +1,29 @@
+name: 'ad_dbt_demo'
+version: '1.0.0'
+
+# This setting configures which "profile" dbt uses for this project.
+profile: 'ad_dbt_demo'
+
+model-paths: ["models"]
+analysis-paths: ["analyses"]
+test-paths: ["tests"]
+seed-paths: ["seeds"]
+macro-paths: ["macros"]
+snapshot-paths: ["snapshots"]
+
+clean-targets:         # directories to be removed by `dbt clean`
+  - "target"
+  - "dbt_packages"
+
+models:
+  ad_dbt_demo:
+    # Config indicated by + and applies to all files under models/example/
+    example:
+      +materialized: view
+
+seeds:
+  ad_dbt_demo:
+    imdb:
+      header: true
+      delimiter: ","
+
